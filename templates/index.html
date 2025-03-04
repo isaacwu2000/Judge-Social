@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Judge Social</title>
-
-    <link rel="stylesheet" href="static/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/index.css">
+    <script src="/static/index.js" defer></script>
 </head>
 <body>
-    <h1 id="title">Judge Social</h1>
+    <h1 id="title">Unethical AI: Judge Social</h1>
     <main>
-        <div id="chat">  
-            <p>Hello</p>   
-            <form id="message">
-                <input >
-            </form>
+        <div id="chat">
+            <div id="conversation">
+            </div>
+            <div id="messages">
+                <form id="msg-form">
+                    <textarea id="msg-box" name="message-box" rows="4" cols="50" placeholder="Type your response here..."></textarea>
+                    <button id="msg-submit" type="submit">Submit</button>
+                </form>
+            </div>
         </div>
         <div id="judgement">
-
+            Put the social credit score and rational here
         </div>
     </main>
     
