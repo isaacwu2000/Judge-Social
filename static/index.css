@@ -23,6 +23,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 20px;
 }
 
 #conversation {
@@ -31,6 +32,16 @@ body {
     justify-content: space-between;
     margin-bottom: 16px;
     width: 100%;
+}
+
+.conversation-text {
+    background-color: lightblue;
+    border-radius: 15px;
+    align-self: flex-end;
+    width: "fit-content";
+    min-height: 20px;
+    margin-bottom: 16px;
+    padding: 10px 20px 10px 20px;
 }
 
 #messages {
@@ -56,12 +67,15 @@ body {
     font-family: "Lexend", Arial, Helvetica, sans-serif;
     box-sizing: border-box;
     border-radius: 5px;
+    border-width: 0.75px;
     margin-right: 40px;
 }
 
 #msg-submit {
     height: inherit;
     font-family: "Lexend", Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    border-width: 0.75px;
 }
 
 #judgement {
