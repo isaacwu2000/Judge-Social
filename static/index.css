@@ -34,14 +34,18 @@ body {
     width: 100%;
 }
 
-.conversation-text {
+.human-text {
     background-color: lightblue;
     border-radius: 15px;
     align-self: flex-end;
     width: "fit-content";
     min-height: 20px;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
     padding: 10px 20px 10px 20px;
+}
+
+.ai-text {
+    margin-bottom: 32px;
 }
 
 #messages {
