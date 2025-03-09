@@ -33,7 +33,7 @@ def judgement(conversation):
     with open('prompts/judgement.txt', 'r') as judgement_guidelines_file:
         judement_guidelines = judgement_guidelines_file.read()
     # Have Gemini respond as though it has the persona
-    user = f"Evaluate and roast the User in this conversation based on your conversation judement and roasting guidelines '''{conversation}'''. Make sure to go straight into the eval and roast w/o preamble. Also, refer to the User in second person."
+    user = f"Evaluate and roast the User in this conversation based on your conversation judement and roasting guidelines '''{conversation}'''. Make sure to go straight into the eval and roast w/o preamble. Also, refer to the User in second person. Finally, end your response w/ a social ability score out of 10. (Example scores: -1000, -5, -3, 0, 1, 3, 5, 7, 8, 9, 10). Respond in PARAGRAPH form, NO BULLET POINTS or '-'. Split your response into multiple paragraphs: 1 for evaluation, 1 for roast, and 1 for social ability score."
     return gemini(judement_guidelines, user)
 
-print(judgement('AI: "Hey, long time no see! How have you been?" User: "Busy." AI: "Oh, I get that. What’s been keeping you busy?" User: "Work." AI: "Anything exciting happening?" User: "Nope."'))
+#print(judgement('AI: "Hey, long time no see! How have you been?" User: "Busy." AI: "Oh, I get that. What’s been keeping you busy?" User: "Work." AI: "Anything exciting happening?" User: "Nope."'))

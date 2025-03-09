@@ -33,13 +33,15 @@ def conversation_response():
     conversation_text = content.get('conversation', '')
     response = conversation(conversation_text)
     return jsonify({'response': response})
-
+"""
 @app.route('/judgement', methods=['POST'])
 def conversation_response(): 
     content = request.json
     full_conversation_text = content.get('conversation', '')
     response = judgement(full_conversation_text)
     return jsonify({'response': response})
+"""
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=1000, debug=True)
