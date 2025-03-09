@@ -14,8 +14,7 @@ document.getElementById("msg-form").addEventListener("submit", async function(ev
         humanMsg.classList.add("conversation-text", "human-text");
         // Adding the div to the conversation
         conversation.appendChild(humanMsg);
-
-        console.log("Message:", formData.get("message-box"));
+        // Removing the text from the text area
         let textarea = document.getElementById("msg-box");
         textarea.value = ""; // Removing all the text in the text area
 
@@ -23,7 +22,11 @@ document.getElementById("msg-form").addEventListener("submit", async function(ev
         let texts = document.getElementsByClassName('conversation-text');
         let textsString = "";
         for (let message of texts) {
-            textsString += "\nUser:" + message.textContent;
+            if (message.classList.contains("human-text")) {
+                textsString += "\nUser: " + message.textContent;
+            } else {
+                textsString += "\nAI: "+message.textContent;
+            }
         }
         if (texts.length >= 5) {
             console.log("Time to evaluate")
@@ -41,6 +44,8 @@ document.getElementById("msg-form").addEventListener("submit", async function(ev
             // Making the textarea and button disappear
             formDiv = document.getElementById("messages");
             formDiv.style.display = "none";
+            // Sending the conversation to the server for evaluation
+            sendfullConversation(textsString);
 
         } else {
             // Sending it and getting the response if there aren't too many messages
@@ -78,3 +83,27 @@ async function sendDataConversation(textsString) {
     }
 }
 
+// Getting the final judegment after the conversation is completed
+async function sendfullConversation(textsString) {
+    try {
+        let response = await fetch('http://127.0.0.1:1000/judgement', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ conversation: textsString }),
+        });
+
+        let data = await response.json(); // Wait for JSON parsing
+        console.log(data.response);
+        // Setting the text content of the judgement div to be the AI eval and roast
+        judgementSection = document.getElementById("judgement");
+        let judgement = document.createElement("div");
+        judgement.textContent = data.response;
+        judgementSection.appendChild(judgement);
+        judgementSection.style.visibility = "visible";
+        
+    } catch (error) {
+        console.log('Error:', error);
+    }
+}

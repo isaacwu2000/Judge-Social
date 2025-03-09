@@ -83,8 +83,11 @@ body {
 }
 
 #judgement {
-    padding: 20px 20px 20px 20px;
+    width: 800px;
+    padding: 20px 40px 40px 40px;
     background-color: aquamarine;
+    visibility: hidden;
+    border-radius: 20px;
 }
 
 #final-msg {

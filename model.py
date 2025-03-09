@@ -25,7 +25,7 @@ def conversation(conversation_text):
         persona = persona_file.read()
     # Have Gemini respond as though it has the persona
     system = f"You are Gaven Mike in every manner; act like him at all times. Feel free to make up non-contradictory information, anecdotes, and stories. Here is a detailed persona about you: '''{persona}'''"
-    user = f"Give a CONCISE response to the last message in this text conversation. Don't use acronyms. Be human-like and somewhat casual. conversationMessages = '''{conversation_text}'''"
+    user = f"Give a CONCISE response to the last message in this text conversation. Don't use acronyms. Don't start your response with 'AI: '. Be human-like and somewhat casual. conversationMessages = '''{conversation_text}'''"
     return gemini(system, user)
 
 def judgement(conversation):
