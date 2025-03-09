@@ -29,7 +29,6 @@ document.getElementById("msg-form").addEventListener("submit", async function(ev
             }
         }
         if (texts.length >= 5) {
-            console.log("Time to evaluate")
             // Making the final message a converstion closer
             let finalMsg = document.createElement("div");
             let conversation = document.getElementById("conversation");
@@ -67,7 +66,6 @@ async function sendDataConversation(textsString) {
         });
 
         let data = await response.json(); // Wait for JSON parsing
-        console.log(data.response);
         // Putting the response message into a new div
         let aiMsg = document.createElement("div");
         let conversation = document.getElementById("conversation");
@@ -95,7 +93,6 @@ async function sendfullConversation(textsString) {
         });
 
         let data = await response.json(); // Wait for JSON parsing
-        console.log(data.response);
         // Setting the text content of the judgement div to be the AI eval and roast
         judgementSection = document.getElementById("judgement");
         let judgement = document.createElement("div");

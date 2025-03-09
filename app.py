@@ -38,7 +38,6 @@ def conversation_response():
 def conversation_judgement(): 
     content = request.json
     full_conversation_text = content.get('conversation', '')
-    print(full_conversation_text)
     response = judgement(full_conversation_text)
     return jsonify({'response': response})
 
