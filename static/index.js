@@ -31,18 +31,18 @@ function sendData() {
     }
     console.log(textsString);
 
-    fetch('http://127.0.0.1:5000/conversation', {
+    fetch('http://127.0.0.1:1000/conversation', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ input: textsString }),
+        body: JSON.stringify({ conversation: textsString }),
     })
     .then(response => response.json())
     .then(data => {
        console.log(data.response);
     })
     .catch((error) => {
-        console.error('Error:', error);
+        console.log('Error:', error);
     });
 }

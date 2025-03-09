@@ -17,6 +17,7 @@ def gemini(system="", user=""):
     )
 
     # Returning the generated text
+    print(response.text)
     return response.text
 
 def conversation(conversation_text):
@@ -29,5 +30,7 @@ def conversation(conversation_text):
     user = f"Give a response to the last message in this text conversation. conversationMessages = '''{conversation_text}'''"
     return gemini(system, user)
 
-def judgement():
+async def judgement():
     pass
+
+gemini(system="Hello", user="How are you?")

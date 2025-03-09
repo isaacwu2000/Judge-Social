@@ -29,10 +29,12 @@ def add_cors_headers(response):
 
 @app.route('/conversation', methods=['POST'])
 def conversation_response():
+    print("Received request")
     content = request.json
     conversation_text = content.get('conversation', '')
     response = conversation(conversation_text)
+    print(response)
     return jsonify({'response': response})
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=1000, debug=True)
