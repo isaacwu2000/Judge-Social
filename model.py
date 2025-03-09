@@ -21,7 +21,7 @@ def gemini(system="", user=""):
 
 def conversation(conversation_text):
     # Reading the extensive persona file
-    with open('/prompts/persona.txt', 'r') as persona_file:
+    with open('prompts/persona.txt', 'r') as persona_file:
         persona = persona_file.read()
     # Have Gemini respond as though it has the persona
     system = f"You are Gaven Mike in every manner; act like him at all times. Feel free to make up non-contradictory information, anecdotes, and stories. Here is a detailed persona about you: '''{persona}'''"
@@ -30,10 +30,10 @@ def conversation(conversation_text):
 
 def judgement(conversation):
     # Reading the extensive persona file
-    with open('/prompts/judgement.txt', 'r') as judgement_guidelines_file:
+    with open('prompts/judgement.txt', 'r') as judgement_guidelines_file:
         judement_guidelines = judgement_guidelines_file.read()
     # Have Gemini respond as though it has the persona
-    user = f"Evaluate and roast the User in this conversation based on your conversation judement and roasting guidelines '''{conversation}'''"
+    user = f"Evaluate and roast the User in this conversation based on your conversation judement and roasting guidelines '''{conversation}'''. Make sure to go straight into the eval and roast w/o preamble. Also, refer to the User in second person."
     return gemini(judement_guidelines, user)
 
 print(judgement('AI: "Hey, long time no see! How have you been?" User: "Busy." AI: "Oh, I get that. What’s been keeping you busy?" User: "Work." AI: "Anything exciting happening?" User: "Nope."'))
