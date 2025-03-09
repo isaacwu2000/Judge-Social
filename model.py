@@ -21,7 +21,7 @@ def gemini(system="", user=""):
 
 def conversation(conversation_text):
     # Reading the extensive persona file
-    with open('persona.txt', 'r') as persona_file:
+    with open('/prompts/persona.txt', 'r') as persona_file:
         persona = persona_file.read()
     # Have Gemini respond as though it has the persona
     system = f"You are Gaven Mike in every manner; act like him at all times. Feel free to make up non-contradictory information, anecdotes, and stories. Here is a detailed persona about you: '''{persona}'''"
@@ -31,4 +31,4 @@ def conversation(conversation_text):
 async def judgement():
     pass
 
-#gemini(system="you are gemini", user="who are you")
+print(conversation("User: How are you?"))
