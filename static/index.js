@@ -25,20 +25,31 @@ document.getElementById("msg-form").addEventListener("submit", async function(ev
     for (let message of texts) {
         textsString += "\nUser:" + message.textContent;
     }
-    if (texts.length >= 4) {
+    if (texts.length >= 5) {
         console.log("Time to evaluate")
         // Making the final message a converstion closer
         let finalMsg = document.createElement("div");
         let conversation = document.getElementById("conversation");
-        finalMsg.textContent = data.response;
-        aiMsg.classList.add("conversation-text", "ai-text");
+        finalMsg.textContent = "Thanks for talking! Now, it's evaluation time :)";
+        finalMsg.className = "conversation-text";
+        finalMsg.id = "final-msg";
+        // 1.5 sec delay before final response
+        setTimeout(function() {
+            // Adding the div to the conversation
+            conversation.appendChild(finalMsg);
+          }, 1000);  
+          // Making the textarea and button disappear
+          formDiv = document.getElementById("messages");
+          formDiv.style.display = "none";
+
+    } else {
+        // Sending it and getting the response if there aren't too many messages
+        sendDataConversation(textsString)
     }
-    // Sending it and getting the response if there aren't too many messages
-    sendData(textsString)
 });
 
 // Getting the AI's response after the User sends a message
-async function sendData() {
+async function sendDataConversation(textsString) {
     try {
         let response = await fetch('http://127.0.0.1:1000/conversation', {
             method: 'POST',
@@ -57,12 +68,11 @@ async function sendData() {
         aiMsg.classList.add("conversation-text", "ai-text");
         // Introducing a 2 second delay before the AI response
         setTimeout(function() {
-            // Code to execute after 2 seconds
-          }, 2000); // 2000 milliseconds = 2 seconds
-          
-        // Adding the div to the conversation
-        conversation.appendChild(aiMsg);
+            // Adding the div to the conversation
+            conversation.appendChild(aiMsg);
+          }, Math.min(1500, aiMsg.textContent.length*100));  
     } catch (error) {
         console.log('Error:', error);
     }
 }
+

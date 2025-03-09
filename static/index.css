@@ -86,3 +86,8 @@ body {
     padding: 20px 20px 20px 20px;
     background-color: aquamarine;
 }
+
+#final-msg {
+    width: 100%;
+    text-align: center;
+}
