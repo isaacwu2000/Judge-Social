@@ -1,4 +1,6 @@
 # Judge-Social
-Note: Make sure to set GEMINI_API_KEY = "Your api key here" in .env
-Make sure to pip uninstall urllib3
-pip install urllib3==1.26.6
+This was part of a submission to the Milton Academy Programming Club Fall 2024 Hackathon. It uses Gemini to hold a text conversation with the User and then roast their social skills afterwards.
+
+## Setup
+Run ```pip install requirements.txt```
+Set the environmental variable ```GEMINI_API_KEY = your-api-key-here```
