@@ -3,4 +3,5 @@ This was part of a submission to the Milton Academy Programming Club Fall 2024 H
 
 ## Setup
 Run ```pip install requirements.txt```
+
 Set the environmental variable ```GEMINI_API_KEY = your-api-key-here```
